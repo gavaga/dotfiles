@@ -1,0 +1,30 @@
+#!/bin/bash
+
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+if [ $# -gt 0 ]; then
+	DAYS_IN_ADVANCE=$1
+else
+	DAYS_IN_ADVANCE=10
+fi
+
+DATE_FORMAT="%Y-%m-%d"
+READINGS_ROOT="$HOME/Dropbox/harvard/"
+READINGS_DESTINATION=$HOME/Dropbox/harvard/readings/
+
+rm -rf ${READINGS_DESTINATION}/*
+
+now="$(date +${DATE_FORMAT})"
+
+ctr=$DAYS_IN_ADVANCE
+while [ $ctr != -1 ]; do
+	day=$(date +${DATE_FORMAT} -d "+$ctr days")
+	for i in $(find ${READINGS_ROOT} | grep "${day}" | sed 's/ /_/g'); do
+		echo "ln -s $i ${READINGS_DESTINATION}"
+		ln -s $i ${READINGS_DESTINATION}
+	done
+	ctr=$(expr $ctr - 1)
+done
+
+IFS=$SAVEIFS

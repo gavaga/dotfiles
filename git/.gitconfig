@@ -1,0 +1,9 @@
+[user]
+	name = Gavin McDowell
+	email = gmcdowell@college.harvard.edu
+[push]
+	default = simple
+[code]
+	editor = vim
+[core]
+	editor = vim

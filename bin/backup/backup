@@ -1,0 +1,31 @@
+#!/bin/bash
+# full system backup
+
+root=$1
+
+# backup destination
+backdest=$2
+
+pc=prometheus
+distro=arch
+type=full
+date=$(date "+%F")
+backupfile="$backdest/$distro-$type-$date.tar.gz"
+
+prog=${0##*/}
+excdir="$root/home/gavaga/.bin/backup"
+exclude_file="$excdir/$prog-exc.txt"
+
+echo -n "First chroot from a LiveCD. Are you ready to backup? (y/n): "
+read executeback
+
+if [ ! -f $exclude_file ]; then
+  echo -n "No exclude file exists, continue? (y/n): "
+  read continue
+  if [ $continue == "n" ]; then exit; fi
+fi
+
+if [ $executeback = "y" ]; then
+#  echo $(cat $exclude_file);
+  tar --exclude-from=$exclude_file --xattrs -czpvf $backupfile $root;
+fi

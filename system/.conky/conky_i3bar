@@ -1,0 +1,42 @@
+# vim:filetype=conkyrc
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+update_interval 2.0
+
+total_run_times 0
+
+short_units yes
+
+if_up_strictness address
+
+use_spacer left
+
+override_utf8_locale no
+
+cpu_avg_samples 2
+
+
+
+TEXT
+
+[
+    { "name": "memory", "full_text": "RAM ${memperc}%", "color": ${if_match ${memperc}<90}"\#00ff00"${else}"\#ff0000"${endif} },
+    { "name": "cpu", "full_text": "CPU ${cpu cpu0}%", "color": ${if_match ${cpu}<90}"\#00ff00"${else}"\#ff0000"${endif} },
+    ${if_match "${gw_iface}"=="wlp4s0"}
+        { "name": "wifi_status", "full_text": "${wireless_essid wlp4s0}: ${addr wlp4s0}", "color": "\#adadad"},
+        { "name": "up_down_speed", "full_text": "${downspeed wlp4s0} / ${upspeed wlp4s0}", "color": "\#adadad"},
+    ${endif}
+#    ${if_match ${execpi 300 python ~/.scripts/gmail.py}>0}
+#        { "name": "gmcdowell", "full_text": "gmcdowell@college.harvard.edu: ${exec python ~/.scripts/gmail.py} NEW", "color": "\#0000ff"},
+#    ${endif} 
+    ${if_match ${execpi 60 checkupdates | wc -l}>0}
+        { "name": "updates", "full_text": "${exec checkupdates | wc -l} Updates Ready", "color": "\#ff0000"},
+    ${endif}
+     { "name": "battery", "full_text": "Battery: ${exec cat /sys/class/power_supply/BAT0/capacity}%", "color": ${if_match ${exec cat /sys/class/power_supply/BAT0/capacity}<25}"\#ff0000"${else}"\#00ff00"${endif}}, 
+     { "name": "volume", "full_text": "Volume: ${if_match "${exec ponymix | grep Muted}"!=""}[MUTED]${else}${exec ponymix | awk '/Avg. Volume/ {print $3}' | head -1 | sed 's/%//g'}%${endif}", "color": ${if_match "${exec ponymix | grep "Muted"}"!=""}"\#ff0000"${else}"\#adadad"${endif} },
+    { "name": "time", "full_text": ${time "%F %T"}, "color": "\#ffffff"}
+],

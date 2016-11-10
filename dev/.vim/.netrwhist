@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/gavaga/documents/cs61/lectures/os02'
+let g:netrw_dirhist_2='/home/gavaga/documents/cs61/gmcdowell-cs61-psets/pset4/link'
+let g:netrw_dirhist_3='/home/gavaga/Downloads/Airplane! (1980) [1080p] x264 - Jalucian'
+let g:netrw_dirhist_4='/home/gavaga/documents/dev/go/src/bitbucket.com/gavaga'
+let g:netrw_dirhist_5='/home/gavaga/documents/dev/go/src/bitbucket.com/gavaga/hello'

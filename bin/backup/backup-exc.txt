@@ -1,0 +1,8 @@
+/mnt
+/tmp
+/var/cache/pacman/pkg/
+/lost+found
+/proc
+/sys
+/media
+

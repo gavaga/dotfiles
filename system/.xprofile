@@ -1,0 +1,12 @@
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export TERMINAL=termite
+
+dbus-launch pcmanfm -d &
+nm-applet &
+touchegg &
+ibus-daemon -drx &
+redshift-gtk &
+/home/gavaga/.bin/wallpaper.sh &
+dropbox &
