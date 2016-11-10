@@ -1,0 +1,3 @@
+[submodule "dev/.zprezto"]
+	path = dev/.zprezto
+	url = git@github.com:gavaga/zprezto.git
