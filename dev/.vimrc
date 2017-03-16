@@ -36,7 +36,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 Plugin 'taglist.vim'
 Plugin 'tpope/vim-fugitive'
@@ -53,6 +53,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bling/vim-bufferline'
 
 Bundle 'cespare/vim-toml'
+
 
 call vundle#end()
 filetype plugin indent on

@@ -10,3 +10,4 @@ ibus-daemon -drx &
 redshift-gtk &
 /home/gavaga/.bin/wallpaper.sh &
 dropbox &
+autokey-gtk &

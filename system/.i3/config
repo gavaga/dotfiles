@@ -171,6 +171,12 @@ bindsym $mod+Shift+Ctrl+Right exec "/home/gavaga/.i3/rotate_right"
 bindsym $mod+Shift+Ctrl+Up exec "/home/gavaga/.i3/rotate_norm"
 bindsym $mod+Shift+Ctrl+Down exec "/home/gavaga/.i3/rotate_invert"
 
+# Multimonitor Settings
+bindsym $mod+Ctrl+Shift+o exec "/home/gavaga/.screenlayout/extern_off.sh"
+bindsym $mod+Ctrl+Shift+m exec "/home/gavaga/.screenlayout/extern_mirror.sh"
+bindsym $mod+Ctrl+Shift+w exec "/home/gavaga/.screenlayout/extern_wide.sh"
+bindsym $mod+Ctrl+Shift+t exec "/home/gavaga/.screenlayout/extern_tall.sh"
+
 # Extra Keys
 bindsym $mod+Super_L exec "i3lock-wrapper"
 

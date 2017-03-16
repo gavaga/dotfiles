@@ -3,3 +3,4 @@
 .*.un~
 *.pid
 *.log
+**/bundle/*

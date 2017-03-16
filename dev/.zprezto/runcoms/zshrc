@@ -1,0 +1,32 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+
+# Customize to your needs...
+#
+alias reboot="systemctl reboot"
+alias poweroff="systemctl poweroff"
+alias halt="systemctl halt"
+
+alias ls='ls --color=tty'
+
+setopt HIST_IGNORE_DUPS
+
+[[ -n "${key[PageUp]}"   ]]  && bindkey   "${key[PageUp]}"   history-beginning-search-backward
+[[ -n "${key[PageDown]}" ]]  && bindkey   "${key[PageDown]}" history-beginning-search-forward
+
+[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+
+source ~/.zshenv
+source ~/.zprofile
+
+eval $(dircolors ~/.dircolors)
