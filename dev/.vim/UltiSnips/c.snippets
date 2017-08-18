@@ -1,0 +1,70 @@
+snippet utd "user-TODO"
+// `echo $USER`-TODO: ${1:desc} (`!v strftime("%F")`)
+endsnippet
+
+snippet todo "TODO override"
+// TODO: ${1:desc} (`!v strftime("%F")` `echo $USER`)
+endsnippet
+
+snippet fun "function with docstring"
+/*!
+ * @brief ${4:brief}
+ * `!p 
+from UltiSnips.snippet_manager import UltiSnips_Manager
+val = ''
+try:
+	maxlen = max([len(x.strip().split(' ')[1]) for x in t[3].split(',')])
+	for i,(typ, name) in enumerate([a.strip().split(' ') for a in t[3].split(',')]):
+		val += "\n * {:<17} {:<{varwidth}} {}".format("@param[in]", name, typ, varwidth=maxlen)
+except:
+	pass
+snip.rv = val + "\n *"
+`
+ * @return ${5:return}
+ */
+${1:type} ${2:fname}(${3:args})
+{
+	$0
+}
+endsnippet
+
+snippet funcd "Doxygen copydoc function"
+/*!
+ * @copydoc ${2:copy}
+ */
+NV_STATUS
+${1:name}
+(
+	${3:args}
+)
+{
+	NV_STATUS  status = NV_OK;
+
+	status = $0;
+	if (status != NV_OK)
+	{
+		DBG_PRINTF((DBG_MODULE_PMGR, DBG_LEVEL_ERRORS,
+			"NVRM: %s: $4 $5 returned error: status=0x%08x.\n",
+			__FUNCTION__, status));
+		DBG_BREAKPOINT();
+		goto $1_exit;
+	}
+
+$1_exit:
+	return status;
+}
+endsnippet
+
+snippet funinst "inst function"
+/*!
+ * @copydoc ${2:copy}
+ */
+static NV_STATUS
+${1:name}
+(
+	${3:args}
+)
+{
+	return NV_OK
+}
+endsnippet
