@@ -123,7 +123,7 @@ endif
 """Theme Settings
 let g:solarized_termcolors=16
 se t_Co=256
-set background=light
+set background=dark
 colorscheme solarized
 
 
